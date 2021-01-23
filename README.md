@@ -18,5 +18,6 @@ This repo contains an R script, 'run_analysis.R', that performs the following ta
     - The script groups the 'filteredData' by the 'subject' and 'activity' columns such that an average can be taken for each of the variables by the activity type and subject
     - The output of the above step is placed into a new data table called 'tidyData'
     - A text file called 'tidyData.txt' is generated which pulls in the 'tidyData' data table
+    - Use the command 'View(read.table("tidyData.txt", header = TRUE))' to see the tidy data in R.
     
 This repo also contains a code book, 'CodeBook.md' which describes the variables, data, and code used to get and clean the data from the UCI Machine Learning Repository.
