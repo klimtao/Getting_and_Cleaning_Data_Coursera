@@ -50,7 +50,7 @@ y_testData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/test/y_test.txt", 
 s_testData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/test/subject_test.txt", col.names = "subject"))
 
 ## Prepare column names and factor levels for data sets
-activities <- tbl_df(read.table("CourseraData/UCI HAR Dataset/activity_labels.txt", col.names = c("index", "activity")))
+activities <- read.table("CourseraData/UCI HAR Dataset/activity_labels.txt", col.names = c("index", "activity"))
 features <- tbl_df(read.table("CourseraData/UCI HAR Dataset/features.txt", col.names = c("index", "featureFunction")))
 
 
@@ -93,4 +93,4 @@ names(filteredData) <- gsub("Mag", "Magnitude", names(filteredData))
 groupedData <- group_by(filteredData, subject, activity)
 tidyData <- summarize_all(groupedData, mean)
 
-write.table(tidyData, "tidyData.txt", row.name = FALSE)
+write.table(tidyData, "tidyData.txt", row.names = FALSE)
