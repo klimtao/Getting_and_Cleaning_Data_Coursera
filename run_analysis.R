@@ -76,7 +76,6 @@ filteredData$activity <- activities[filteredData$activity, 2]
 
 ## ---------------------------
 ## Label the data set with descriptive variable names.
-
 names(filteredData) <- gsub("^t", "Time", names(filteredData))
 names(filteredData) <- gsub("^f", "Frequency", names(filteredData))
 names(filteredData) <- gsub("mean()", "Mean", names(filteredData))
