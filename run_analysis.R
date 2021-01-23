@@ -31,28 +31,27 @@ dataDirectory <- "./CourseraData"
 if(!file.exists(dataDirectory)) {
         dir.create(dataDirectory)
 }
-setwd(dataDirectory)
 
 ## ---------------------------
 ## Download data from the interwebs
 
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(url, "UCIHARdataset.zip")
-unzip("UCIHARdataset.zip")
+download.file(url, "CourseraData/UCIHARdataset.zip")
+unzip("CourseraData/UCIHARdataset.zip", exdir = dataDirectory)
 
 ## ---------------------------
 ## Load up data sets
-x_trainData <- tbl_df(read.table("UCI HAR Dataset/train/X_train.txt"))
-y_trainData <- tbl_df(read.table("UCI HAR Dataset/train/y_train.txt", col.names = "activity"))
-s_trainData <- tbl_df(read.table("UCI HAR Dataset/train/subject_train.txt", col.names = "subject"))
+x_trainData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/train/X_train.txt"))
+y_trainData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/train/y_train.txt", col.names = "activity"))
+s_trainData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/train/subject_train.txt", col.names = "subject"))
 
-x_testData <- tbl_df(read.table("UCI HAR Dataset/test/X_test.txt"))
-y_testData <- tbl_df(read.table("UCI HAR Dataset/test/y_test.txt", col.names = "activity"))
-s_testData <- tbl_df(read.table("UCI HAR Dataset/test/subject_test.txt", col.names = "subject"))
+x_testData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/test/X_test.txt"))
+y_testData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/test/y_test.txt", col.names = "activity"))
+s_testData <- tbl_df(read.table("CourseraData/UCI HAR Dataset/test/subject_test.txt", col.names = "subject"))
 
 ## Prepare column names and factor levels for data sets
-activities <- tbl_df(read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("index", "activity")))
-features <- tbl_df(read.table("UCI HAR Dataset/features.txt", col.names = c("index", "featureFunction")))
+activities <- tbl_df(read.table("CourseraData/UCI HAR Dataset/activity_labels.txt", col.names = c("index", "activity")))
+features <- tbl_df(read.table("CourseraData/UCI HAR Dataset/features.txt", col.names = c("index", "featureFunction")))
 
 
 ## Merge the training and test sets to create one data set.
